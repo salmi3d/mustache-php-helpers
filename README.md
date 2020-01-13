@@ -37,3 +37,21 @@ new Mustache_Engine([
 Usage:
 <h1>{{ text | case.upper }}</h1>
 ```
+## Date transform
+
+> For changing date format
+
+```
+Setup:
+new Mustache_Engine([
+    ...
+    'pragmas' => [Mustache_Engine::PRAGMA_FILTERS],
+    'helpers' => [
+        'date' => new MustacheFilterDateTransform().
+    ]
+    ...
+]);
+
+Usage:
+<meta itemprop="datePublished" content="{{ post.created_at | date.iso8601 }}">
+```
